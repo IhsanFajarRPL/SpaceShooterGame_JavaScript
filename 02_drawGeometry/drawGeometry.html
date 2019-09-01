@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Draw Geometry</title>
+    <style>
+        #canvas{
+            width:960px;
+            height:600px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        window.onload = init();
+        function init() {
+
+            setCanvas()
+            drawGeometry();
+        }
+
+        function setCanvas(){
+            canvas = document.getElementById('canvas');
+            cw = canvas.width = 960;
+            ch = canvas.height = 600;
+
+            pen = canvas.getContext('2d');
+        }
+
+        function drawGeometry(){
+            pen.beginPath();
+            pen.rect(10,10,100,100);
+            pen.fill();
+
+            pen.beginPath();
+            pen.fillStyle = '#ff2020'
+            pen.rect(120,10,100,100);
+            pen.fill();
+
+            pen.beginPath();
+            pen.fillStyle = '#990000';
+            pen.moveTo(10,150);
+            pen.lineTo(150,150);
+            pen.lineTo(75,200);
+            pen.closePath();
+            pen.fill();
+        }
+    </script>
+</body>
+</html>
